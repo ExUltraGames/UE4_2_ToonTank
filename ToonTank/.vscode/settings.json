@@ -1,0 +1,9 @@
+{
+	"files.exclude": {
+		"C:/Users/Zombie_Mining/Documents/GitHub/UE4_2_ToonTank/ToonTank/.vscode": true,
+		"C:/Users/Zombie_Mining/Documents/GitHub/UE4_2_ToonTank/ToonTank/Content": true,
+		"C:/Users/Zombie_Mining/Documents/GitHub/UE4_2_ToonTank/ToonTank/DerivedDataCache": true,
+		"C:/Users/Zombie_Mining/Documents/GitHub/UE4_2_ToonTank/ToonTank/Intermediate": true,
+		"C:/Users/Zombie_Mining/Documents/GitHub/UE4_2_ToonTank/ToonTank/Saved": true
+	}
+}
