@@ -27,3 +27,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * UPGRADED to Visual Studio from Code
 * 136: Deriving BP classes
 * 137: Access Modifiers (Variables) for UPROPERTY, visibleanywhere etc.
+* 138: Creating Child C++ Classes
