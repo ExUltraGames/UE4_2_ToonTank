@@ -26,3 +26,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 135: Creating Components
 * UPGRADED to Visual Studio from Code
 * 136: Deriving BP classes
+* 137: Access Modifiers (Variables) for UPROPERTY, visibleanywhere etc.
