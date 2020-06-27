@@ -29,3 +29,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 137: Access Modifiers (Variables) for UPROPERTY, visibleanywhere etc.
 * 138: Creating Child C++ Classes
 * 139: Pawn Movement Input and child / parent classes
+* 140: Exposing Variables
