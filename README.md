@@ -30,3 +30,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 138: Creating Child C++ Classes
 * 139: Pawn Movement Input and child / parent classes
 * 140: Exposing Variables
+* 141: Pawn Turret (create child class)
