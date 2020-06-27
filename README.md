@@ -32,3 +32,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 140: Exposing Variables
 * 141: Pawn Turret (create child class)
 * 142: Find Distance Between Vectors (Firing Logic)
+* 143: Virtual Functions (Polymorphorisms)

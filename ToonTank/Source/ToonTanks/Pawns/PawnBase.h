@@ -29,4 +29,12 @@ public:
 	// Sets default values for this pawn's properties
 	APawnBase();
 
+protected:
+
+	void RotateTurret(FVector LookAtTarget);
+
+	void Fire();//could have arguments projectile type, number of projectiles etc, here just 1
+
+	virtual void HandleDestruction(); // virtual call by child but able to add functionality on top (overridden)
+
 };
