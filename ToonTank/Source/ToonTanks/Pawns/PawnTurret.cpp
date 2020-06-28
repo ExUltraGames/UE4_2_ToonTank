@@ -16,12 +16,16 @@ void APawnTurret::BeginPlay()
 }
 
 
+
 // Called every frame
 void APawnTurret::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// will add a general fire function in the Parent class
+	//If NO PLayePawn or not in range, return
+	if (!PlayerPawn || ReturnDistanceToPlayer() > FireRange) { return; }
+	//If we have a PLayePawn in range the rotate turret to follow
+	RotateTurret(PlayerPawn->GetActorLocation()); // call from parent class, needs float lookattarget
 }
 
 void APawnTurret::CheckFireCondition() // make the AI better / smarter, fire only if this....
@@ -32,8 +36,7 @@ void APawnTurret::CheckFireCondition() // make the AI better / smarter, fire onl
 	//If player is in range then fire
 	if (ReturnDistanceToPlayer() <= FireRange)
 	{
-		// Fire
-	
+		Fire(); // from parent
 	}
 }
 
@@ -44,4 +47,10 @@ float APawnTurret::ReturnDistanceToPlayer() // float = use directly in check fir
 	float Distance = (PlayerPawn->GetActorLocation() - GetActorLocation()).Size();// temp variable
 	return Distance;
 	
+}
+
+void APawnTurret::HandleDestruction()
+{
+	Super::HandleDestruction(); // runs parent logic first then child below...
+	Destroy(); //AActor function
 }

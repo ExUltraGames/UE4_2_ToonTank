@@ -3,8 +3,9 @@
 
 #include "PawnBase.h"
 #include "Components/CapsuleComponent.h" // needed for forward declare
+#include "Kismet/KismetMathLibrary.h" // for maths calcs
 
-// Sets default values
+// Sets default values // note if no constructor defined the compile will create it anyway
 APawnBase::APawnBase()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -28,11 +29,22 @@ void APawnBase::RotateTurret(FVector LookAtTarget)
 {
 	// update turretmesh rotation to face  LookatTarget passed in from child class
 	//TurretMesh->SetWorldRotation()...
+
+	//Find Rotation to look at
+	FVector StartLocation = TurretMesh->GetComponentLocation();
+	FVector TargetLocation = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);// note constructiong an FVector // Don't want to effect .Z no up down
+	FRotator TurretRotation = UKismetMathLibrary::FindLookAtRotation(StartLocation, TargetLocation);
+
+	//RotateTurret
+	TurretMesh->SetWorldRotation(TurretRotation);
+	//now use in pawnturret class
+
 }
 
 void APawnBase::Fire()
 {
 	//Get ProjectileSpawnPoint Location && Rotation -> Spawn Projectile class at Location towards Rotation
+	UE_LOG(LogTemp, Warning, TEXT("Fire"));
 }
 
 void APawnBase::HandleDestruction()

@@ -25,9 +25,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 	
 private:
 
@@ -46,6 +43,9 @@ private:
 	FVector MoveDirection;
 	FQuat RotationDirection;
 
+	APlayerController* PlayerControllerRef = nullptr; // creating a ref to playercontroller we can use
+	FHitResult TraceHitResult;
+
 	void CalculateMoveInput(float Value); // value is direction from input component
 
 	void CalculateRotateInput(float Value);
@@ -54,4 +54,9 @@ private:
 
 	void Rotate();
 
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	virtual void HandleDestruction() override;
 };

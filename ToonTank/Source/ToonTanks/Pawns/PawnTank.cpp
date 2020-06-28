@@ -19,8 +19,8 @@ void APawnTank::BeginPlay()
 {
 	Super::BeginPlay();
 
+	PlayerControllerRef = Cast<APlayerController>(GetController());
 }
-
 
 // Called every frame
 void APawnTank::Tick(float DeltaTime)
@@ -30,6 +30,14 @@ void APawnTank::Tick(float DeltaTime)
 	Rotate();// works best this way around with rotate first then move
 	Move();
 
+	if (PlayerControllerRef)
+	{
+		PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, true, TraceHitResult); // OUT hitresult of cursor
+		FVector HitLocation = TraceHitResult.ImpactPoint; // place in world trace has hit // see variables . impactpoint
+
+		RotateTurret(HitLocation); // from parent class // already accounted for vertical in parent function
+	}
+
 }
 
 // Called to bind functionality to input // instead of calling UInputComponent and using UNavMovementComponent
@@ -38,6 +46,8 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	PlayerInputComponent->BindAxis("MoveForward", this, &APawnTank::CalculateMoveInput);// bind inputs
 	PlayerInputComponent->BindAxis("Turn", this, &APawnTank::CalculateRotateInput);
+	//call fire function
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APawnTank::Fire);//no () on function
 }
 
 void APawnTank::CalculateMoveInput(float Value)
@@ -60,4 +70,11 @@ void APawnTank::Move()
 void APawnTank::Rotate()
 {
 	AddActorLocalRotation(RotationDirection, true);
+}
+
+void APawnTank::HandleDestruction()
+{
+	Super::HandleDestruction();
+
+	//Hide player on death create new function for this
 }
