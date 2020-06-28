@@ -2,8 +2,8 @@
 
 
 #include "PawnBase.h"
-#include "Components/CapsuleComponent.h" // needed for forward declare
 #include "Kismet/KismetMathLibrary.h" // for maths calcs
+#include "ToonTanks/Actors/ProjectileBase.h" // for forward declare
 
 // Sets default values // note if no constructor defined the compile will create it anyway
 APawnBase::APawnBase()
@@ -44,7 +44,13 @@ void APawnBase::RotateTurret(FVector LookAtTarget)
 void APawnBase::Fire()
 {
 	//Get ProjectileSpawnPoint Location && Rotation -> Spawn Projectile class at Location towards Rotation
-	UE_LOG(LogTemp, Warning, TEXT("Fire"));
+	if (ProjectileClass)
+	{
+		FVector SpawnLocation = ProjectileSpawnPoint->GetComponentLocation();
+		FRotator SpawnRotation = ProjectileSpawnPoint->GetComponentRotation();
+		AProjectileBase* TempProjectile = GetWorld()->SpawnActor<AProjectileBase>(ProjectileClass, SpawnLocation, SpawnRotation);
+		TempProjectile->SetOwner(this);// extra step, set owner as a ref to the class spawning it? // helps later
+	}
 }
 
 void APawnBase::HandleDestruction()

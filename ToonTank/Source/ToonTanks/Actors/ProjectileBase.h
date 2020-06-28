@@ -20,7 +20,7 @@ public:
 	AProjectileBase();
 
 private:
-	//needs projectile movement component
+	//components
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
@@ -28,9 +28,8 @@ private:
 	UStaticMeshComponent* ProjectileMesh;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
-	TSubclassOf<UDamageType> DamageType;// subclass for damage // best way to do could do below but not specific
-	//UPROPERTY(EditDefaultsOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
-	//UClass* PointerToDamageType; //any class can be assigned to this, unlike the TSubclass, only be of UDamageType or subclass of
+	TSubclassOf<UDamageType> DamageType;
+	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement", meta = (AllowPrivateAccess = "true"))
 	float MovementSpeed = 1300.0f;
