@@ -34,3 +34,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 142: Find Distance Between Vectors (Firing Logic)
 * 143: Virtual Functions (Polymorphorisms)
 * 144: Calling Override functions
+* 145: Creating Actor Classes c++ (i.e. projectile)
