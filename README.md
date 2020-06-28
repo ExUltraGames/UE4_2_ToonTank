@@ -36,3 +36,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 144: Calling Override functions
 * 145: Creating Actor Classes c++ (i.e. projectile)
 * 146: Spawning Actors
+* 147: Using Dynamic Delegates (OnHit)

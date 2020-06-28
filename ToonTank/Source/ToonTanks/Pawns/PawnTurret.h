@@ -25,7 +25,7 @@ private:
 	float FireRate = 2.0f; // how often FTimer should tick i.e 2 seconds
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat", meta = (AllowPrivateAccess = "true"))
-	float FireRange = 500.0f;
+	float FireRange = 1000.0f;
 	
 	APawnTank* PlayerPawn;
 	FTimerHandle FireRateTimerHandle; // for FTimer
