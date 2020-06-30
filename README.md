@@ -38,3 +38,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 146: Spawning Actors
 * 147: Using Dynamic Delegates (OnHit)
 * 148: Creating GamingMode Classes
+* 149: Creating a Health Component
