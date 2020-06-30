@@ -37,3 +37,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 145: Creating Actor Classes c++ (i.e. projectile)
 * 146: Spawning Actors
 * 147: Using Dynamic Delegates (OnHit)
+* 148: Creating GamingMode Classes
