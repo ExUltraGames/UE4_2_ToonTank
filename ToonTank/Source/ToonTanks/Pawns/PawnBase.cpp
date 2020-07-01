@@ -60,7 +60,7 @@ void APawnBase::HandleDestruction()
 	//Play death effecst Particle, sound and camera shake
 
 	//the do unique child overrides
-	// PawnTurret - inform GameMode Turret died -> the Destroy() self
+	// PawnTurret - inform GameMode Turret died -> then Destroy() self
 
 	// PawnTank -  inform GameMode Tank died -> then hide() all components && stop movement input // otherwise lose camera best wat rather than destroy
 }

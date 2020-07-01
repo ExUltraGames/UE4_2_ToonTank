@@ -42,3 +42,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 150: Adding Health Functionality (Health Component continued, binding TakeDamage function)
 * 151: Creating Widget BPs (UI)
 * 152: Game Mode Actor Died
+* 153: End Game Widget
