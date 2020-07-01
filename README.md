@@ -40,3 +40,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 148: Creating GamingMode Classes
 * 149: Creating a Health Component
 * 150: Adding Health Functionality (Health Component continued, binding TakeDamage function)
+* 151: Creating Widget BPs (UI)
