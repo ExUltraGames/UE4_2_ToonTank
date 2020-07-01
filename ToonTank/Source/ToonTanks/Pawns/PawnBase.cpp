@@ -25,6 +25,7 @@ APawnBase::APawnBase()
 
 }
 
+
 void APawnBase::RotateTurret(FVector LookAtTarget)
 {
 	// update turretmesh rotation to face  LookatTarget passed in from child class
@@ -64,3 +65,7 @@ void APawnBase::HandleDestruction()
 	// PawnTank -  inform GameMode Tank died -> then hide() all components && stop movement input // otherwise lose camera best wat rather than destroy
 }
 
+void APawnBase::PawnDestroyed() // when called child classes will handle destruction
+{
+	HandleDestruction();
+}
