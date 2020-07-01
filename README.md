@@ -43,3 +43,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 151: Creating Widget BPs (UI)
 * 152: Game Mode Actor Died
 * 153: End Game Widget
+* 154: Game Mode BP (Create and display start / end Widgets)

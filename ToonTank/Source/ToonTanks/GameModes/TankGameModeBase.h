@@ -32,6 +32,9 @@ private:
 	int32 TargetTurrets = 0; // number of turrets to destroy
 	int32 GetTargetTurretCount();
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game Loop", meta = (AllowPrivateAccess = "true"))
+	int StartDelay = 3; // int not int32 as BP can't deal with that
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player", meta = (AllowPrivateAccess = "true"))
 	APawnTank* PlayerTank;
 
