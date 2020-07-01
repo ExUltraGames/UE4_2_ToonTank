@@ -10,7 +10,7 @@ UHealthComponent::UHealthComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false; // reactive class to function calls, no tick
 
-	Health = DefaultHealth;
+	//Health = DefaultHealth; // wrong place move to BeginPlay
 }
 
 
@@ -18,7 +18,7 @@ UHealthComponent::UHealthComponent()
 void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
+	Health = DefaultHealth;
 	GameModeRef = Cast<ATankGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 
 	Owner = GetOwner();
@@ -42,6 +42,7 @@ void UHealthComponent::TakeDamage(AActor* DamagedActor, float Damage, const UDam
 	}
 	
 	Health = FMath::Clamp(Health - Damage, 0.0f, DefaultHealth); // could use absolute maxhealth instead of defaultHeakth if wanted
+	//UE_LOG(LogTemp, Warning, TEXT("Health: %f"), Health);
 
 	if (Health <= 0) // updated Helath value, check of alive
 	{
