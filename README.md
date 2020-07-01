@@ -45,3 +45,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 153: End Game Widget
 * 154: Game Mode BP (Create and display start / end Widgets)
 * 155: Debugging Health Component
+* fix Remove UI
