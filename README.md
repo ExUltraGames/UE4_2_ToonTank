@@ -47,3 +47,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 155: Debugging Health Component
 * fix Remove UI (Update Remove UI expected a parameter, recreated function and fixed)
 * 156: Player Controllers (Player / AI interface)
+* 157: PawnTank Destruction

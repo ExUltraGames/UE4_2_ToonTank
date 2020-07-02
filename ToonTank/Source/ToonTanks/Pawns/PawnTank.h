@@ -25,6 +25,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	bool GetPlayerAlive();
 	
 private:
 
@@ -46,6 +47,8 @@ private:
 	APlayerController* PlayerControllerRef = nullptr; // creating a ref to playercontroller we can use
 	FHitResult TraceHitResult;
 
+	bool bAlive = true; // stop tracking on death // keep secure so create getter in public
+
 	void CalculateMoveInput(float Value); // value is direction from input component
 
 	void CalculateRotateInput(float Value);
@@ -58,5 +61,5 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	virtual void HandleDestruction() override;
+	virtual void HandleDestruction() override; // see parent class whihc we are adding too
 };

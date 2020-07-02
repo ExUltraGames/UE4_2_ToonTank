@@ -25,15 +25,17 @@ void APawnTurret::Tick(float DeltaTime)
 	//If NO PLayePawn or not in range, return
 	if (!PlayerPawn || ReturnDistanceToPlayer() > FireRange) { return; }
 	//If we have a PLayePawn in range the rotate turret to follow
-	RotateTurret(PlayerPawn->GetActorLocation()); // call from parent class, needs float lookattarget
+	RotateTurret(PlayerPawn->GetActorLocation()); 
+
 }
 
 void APawnTurret::CheckFireCondition() // make the AI better / smarter, fire only if this....
 {
 	//If player == null || if dead then BAIL
-	if (!PlayerPawn) { return; }
+	if (!PlayerPawn || !PlayerPawn->GetPlayerAlive()) { return; } // check if alive and stop if no player or player dead
 
 	//If player is in range then fire
+	// TO DO add don't fire for StartDelay?
 	if (ReturnDistanceToPlayer() <= FireRange)
 	{
 		Fire(); // from parent

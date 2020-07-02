@@ -50,6 +50,7 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APawnTank::Fire);//no () on function
 }
 
+
 void APawnTank::CalculateMoveInput(float Value)
 {
 	MoveDirection = FVector(Value * MoveSpeed * GetWorld()->DeltaTimeSeconds, 0, 0); // only affect X
@@ -75,8 +76,13 @@ void APawnTank::Rotate()
 void APawnTank::HandleDestruction()
 {
 	Super::HandleDestruction();
+	bAlive = false;
+	// hide tank and stop running
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+}
 
-	//Hide player on death create new function for this
-
-	// remove Destroy();as fro demo only to show poor handling
+bool APawnTank::GetPlayerAlive()
+{
+	return bAlive;
 }
