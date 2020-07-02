@@ -39,7 +39,7 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActo
 
 	//checks avialable due to SETOWNER() in pawnbase
 	//If the OtherActors isn't self or owner && exists, the apply damage
-	if (OtherActor != NULL && OtherActor != this && OtherActor != MyOwner)// prevents damaging pawn that spawned and protects
+	if (OtherActor != nullptr && OtherActor != this && OtherActor != MyOwner)// prevents damaging pawn that spawned and protects
 	{
 		//std unreal function applydamage from Gameplaystatics
 		UGameplayStatics::ApplyDamage(
@@ -48,8 +48,14 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActo
 			MyOwner->GetInstigatorController(), 
 			this, 
 			DamageType);
+		
+		//Effects
+		if (HitParticle)
+		{
+			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticle, GetActorLocation(), FRotator::ZeroRotator);
+		}
+
+		Destroy();
 	}
-	//Do a bunch of effects here during polish phase
 	
-	Destroy();
 }
