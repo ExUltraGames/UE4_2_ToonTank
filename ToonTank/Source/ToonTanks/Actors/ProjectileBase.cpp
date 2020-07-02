@@ -15,6 +15,9 @@ AProjectileBase::AProjectileBase()
 	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectileBase::OnHit); // Binding of OnHit function to projectile
 	RootComponent = ProjectileMesh; 
 
+	ParticleTrail = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Particle Trail"));
+	ParticleTrail->SetupAttachment(RootComponent);
+
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement "));// no transform so don't attach
 
 	ProjectileMovement->InitialSpeed = MovementSpeed; 

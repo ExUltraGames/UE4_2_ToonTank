@@ -48,4 +48,5 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * fix Remove UI (Update Remove UI expected a parameter, recreated function and fixed)
 * 156: Player Controllers (Player / AI interface)
 * 157: PawnTank Destruction
-* 158: Spawning Particles (also see BattleTank)
+* 158: Spawning Particles (also see BattleTank, at runtime, UParticleSystem)
+* 159: Particle Components (implement as a UParticleSystemComponent)
