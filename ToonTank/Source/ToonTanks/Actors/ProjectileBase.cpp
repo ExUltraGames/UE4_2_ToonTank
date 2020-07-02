@@ -1,8 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "ProjectileBase.h"
+#include "ToonTanks/General/CameraShakeBase.h"
 #include "Kismet/GameplayStatics.h"//for apply damage / sound etc functions
+#include "ProjectileBase.h"
 
 
 // Sets default values
@@ -65,6 +66,11 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActo
 		if (HitSound) // Validity Check
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+		}
+
+		if (HitShake)
+		{
+			GetWorld()->GetFirstPlayerController()->PlayerCameraManager->PlayCameraShake(HitShake, 1);
 		}
 
 		Destroy();

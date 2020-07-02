@@ -5,6 +5,7 @@
 #include "Kismet/KismetMathLibrary.h" // for maths calcs
 #include "ToonTanks/Actors/ProjectileBase.h" // for forward declare
 #include "ToonTanks/Components/HealthComponent.h" 
+#include "ToonTanks/General/CameraShakeBase.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values // note if no constructor defined the compile will create it anyway
@@ -69,6 +70,10 @@ void APawnBase::HandleDestruction()
 	if (DeathSound)
 	{
 		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
+	}
+	if (DeathShake)
+	{
+		GetWorld()->GetFirstPlayerController()->PlayerCameraManager->PlayCameraShake(DeathShake, 1);
 	}
 
 	//See child overrides
