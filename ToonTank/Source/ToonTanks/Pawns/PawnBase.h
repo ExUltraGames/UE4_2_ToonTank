@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/CapsuleComponent.h" 
 #include "GameFramework/Pawn.h"
+#include "Sound/SoundBase.h"
 #include "PawnBase.generated.h"
 
 //class UCapsuleComponent;
@@ -34,6 +35,8 @@ private:
 	TSubclassOf<AProjectileBase> ProjectileClass;// if create more subclasses of projectile // filter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effects", meta = (AllowPrivateAccess = "true"))
 	UParticleSystem* DeathParticle;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effects", meta = (AllowPrivateAccess = "true"))
+	USoundBase* DeathSound;
 
 
 public:

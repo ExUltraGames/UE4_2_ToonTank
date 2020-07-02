@@ -7,6 +7,7 @@
 #include "Components/StaticMeshComponent.h" // prefer in .h
 #include "GameFramework/ProjectileMovementComponent.h" // prefer libraries in .h rather than forward declare
 #include "Particles/ParticleSystemComponent.h"
+#include "Sound/SoundBase.h"
 #include "ProjectileBase.generated.h"
 
 //class UProjectileMovementComponent;
@@ -24,13 +25,12 @@ private:
 	//components
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* ProjectileMesh;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UParticleSystemComponent* ParticleTrail;
 	
+	//Variables
 	UPROPERTY(EditDefaultsOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<UDamageType> DamageType;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement", meta = (AllowPrivateAccess = "true"))
@@ -41,6 +41,10 @@ private:
 	//Effects
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effects", meta = (AllowPrivateAccess = "true"))
 	UParticleSystem* HitParticle;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effects", meta = (AllowPrivateAccess = "true"))
+	USoundBase* HitSound;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effects", meta = (AllowPrivateAccess = "true"))
+	USoundBase * LaunchSound;
 
 
 	UFUNCTION()//must be declared as a ufunction

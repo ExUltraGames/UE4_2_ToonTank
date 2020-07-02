@@ -2,7 +2,7 @@
 
 
 #include "ProjectileBase.h"
-#include "Kismet/GameplayStatics.h"//for apply damage function
+#include "Kismet/GameplayStatics.h"//for apply damage / sound etc functions
 
 
 // Sets default values
@@ -31,7 +31,11 @@ AProjectileBase::AProjectileBase()
 void AProjectileBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	if (LaunchSound) // Validity Check
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, LaunchSound, GetActorLocation());
+	}
 }
 
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -56,6 +60,11 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActo
 		if (HitParticle)
 		{
 			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticle, GetActorLocation(), FRotator::ZeroRotator);
+		}
+		
+		if (HitSound) // Validity Check
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
 		}
 
 		Destroy();

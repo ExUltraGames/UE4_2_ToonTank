@@ -50,3 +50,4 @@ World -> Pawn -> control -> AI or human -> User Interface (UI) -> world (repeat)
 * 157: PawnTank Destruction
 * 158: Spawning Particles (also see BattleTank, at runtime, UParticleSystem)
 * 159: Particle Components (implement as a UParticleSystemComponent)
+* 160: SFX (USoundBase)
